@@ -9,6 +9,7 @@ This library comes with two state machine falvours:
  - `StateMachine` where transitions are triggered directly
  - `EventStateMachine` where transitions are triggered by `Event` and `EventDispatcher`
 
+<br><br>
 
 ##Usage
 
@@ -20,6 +21,8 @@ var sm : StateMachine = new StateMachine("process.step1");
 //EventStateMachine
 var esm : EventStateMachine = new EventStateMachine("process.step1");
 ```
+
+<br>
 
 ###Adding state transitions
 ```actionscript
@@ -59,6 +62,8 @@ esm.add(
 );
 ```
 
+<br>
+
 ###Activating state transitions
 ```actionscript
 //StateMachine
@@ -68,6 +73,8 @@ sm.state = "process.step2";
 processDispatcher.dispatch(Step2Event);
 ```
 
+<br>
+
 ###Getting current state
 ```actionscript
 //StateMachine
@@ -75,4 +82,12 @@ trace(sm.state);
 
 //EventStateMachine
 trace(esm.state);
+```
+
+<br>
+
+###Transition success
+```actionscript
+//StateMachine - attempt to assign new state
+var success : Boolean = (sm.state = 'process.step2') == sm.state;
 ```
